@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Orlando City</title>
 		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdn.plyr.io/3.7.2/plyr.css">
 		<link rel="stylesheet" href="lib/owl.carousel2/dist/assets/owl.carousel.min.css">
 		<link rel="stylesheet" href="lib/owl.carousel2/dist/assets/owl.theme.default.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -99,7 +100,14 @@
 
 					<div class="row">
 						
-						<video src="mp4/highlights.mp4" controls poster="img/highlights.jpg"></video>
+						<div class="player">
+							<video id="player" playsinline controls poster="img/highlights.jpg">
+								<source src="mp4/highlights.mp4" type="video/mp4"/>
+							</video>
+						</div>
+						<input type="range" id="volume_video" min="0" max="1" step="0.1">
+
+						<button type="button" id="btn-play-pause" class="btn btn-success">PLAY</button>
 						
 					</div>
 
@@ -252,9 +260,12 @@
 		</footer>
 
 		<script src="lib/jquery/jquery.min.js"></script>
+		<script src="https://cdn.plyr.io/3.7.2/plyr.js"></script>
 		<script src="lib/owl.carousel2/dist/owl.carousel.min.js"></script>
 		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 		<script src="js/efeitos.js"></script>
+		
+
 		<script>
 		$(document).ready(function(){
 			
@@ -281,6 +292,7 @@
 			});
 
 			$(".thumbnails .item").on("click", function(){
+
 				$("video").attr({
 					"src":"mp4/"+$(this).data('video')+".mp4",
 					"poster":"img/"+$(this).data('video')+".jpg"
@@ -288,6 +300,30 @@
 
 
 			});
+
+			$("#volume_video").on("mousemove",function(){
+
+				$("video")[0].volume = $(this).val();
+			});
+
+			$("#btn-play-pause").on("click", function(){
+				
+				var video = $("video")[0];
+
+				if ($(this).hasClass("btn-success")) {
+					$(this).text("PAUSE");
+					video.play();
+				} else {
+					$(this).text("PLAY");
+					video.pause();
+				}
+
+				$(this).toggleClass("btn-success btn-danger"); /* toogleclass = permite trocar a class (remover ou add)*/ 
+
+			});
+
+			const players = Plyr.setup('.js-player');
+
 		});	
 
 		</script>
