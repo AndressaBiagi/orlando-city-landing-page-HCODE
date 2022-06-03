@@ -465,6 +465,10 @@ footer .list-socials i {
 	margin-bottom: 27px;
     margin-top: -10px;
 }
+#btn-bars, #btn-search, #btn-news-prev, #btn-news-next {
+	display: none; /*icones versão mobile*/
+}
+
 
 
 

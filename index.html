@@ -2,12 +2,12 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width:device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Orlando City</title>
 		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="lib/owl.carousel2/dist/assets/owl.carousel.min.css">
 		<link rel="stylesheet" href="lib/owl.carousel2/dist/assets/owl.theme.default.min.css">
-		<link rel="stylesheet" href="<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/orlando.css">
 		<link rel="stylesheet" href="css/orlando-mobile.css">
@@ -19,6 +19,12 @@
 
 		<header>
 			
+			<button id="btn-bars"type="button"><i class="fa-solid fa-bars"></i></button>
+			<button id="btn-search" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+
+
+
 			<div class="container">
 				<img id="logotipo" src="img/orlando-logo.png" alt="Logotipo">
 			</div>
@@ -103,8 +109,10 @@
 					<h2>Latest News</h2>
 					<hr> <!--'horizontal row' linha abaixo do "latest news"-->
 				</div>	
-				
-				<div class="row thumbnails owl-carousel owl-theme"> <!--NOTICIAS-->
+				<button type="button" id="btn-news-prev"><i class="fa-solid fa-angle-left"></i></button>
+				<button type="button" id="btn-news-next"><i class="fa-solid fa-angle-right"></i></button>
+				<div class="row thumbnails owl-carousel owl-theme">
+					
 					<div class="item">
 						<div class="item-inner">
 
@@ -329,27 +337,16 @@
 		<script>
 		$(document).ready(function(){
 			
-			$(".thumbnails").owlCarousel({
-				loop:true,
-				margin: 10,
-				nav:true,
-				navText: ["Anterior", "Próximo"],
-				responsive: {
-					0 :{ 
-						item: 1 
-					},
-					480:{
-						item: 3
-					},
-					768: {
-						item: 4
-					},
-					1200: {
-						item: 6
-					}
-				}
-
-			});
+			var owl = $('.owl-carousel');
+                owl.owlCarousel();
+ 
+                $('#btn-news-prev').click(function() {
+                    owl.trigger('next.owl.carousel');
+                })
+ 
+                $('#btn-news-next').click(function() {
+                    owl.trigger('next.owl.carousel');
+                });
 		});	
 
 		</script>
