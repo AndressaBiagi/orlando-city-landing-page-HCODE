@@ -19,12 +19,24 @@
 
 		<header>
 			
-			<button id="btn-bars"type="button"><i class="fa-solid fa-bars"></i></button>
-			<button id="btn-search" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+			<div id="menu-mobile-mask" class=".d-block .d-sm-none"></div>
+
+			<div id="menu-mobile" class=".d-block .d-sm-none">
+
+				<ul class="list-unstyled">
+					<li><a href="videos.html">Vídeos</a></li>
+					<li><a href="#">Tickets</a></li> 
+					<li><a href="#">Schedule</a></li>
+					<li><a href="#">News</a></li>
+							
+				</ul>
+				<div class="bar-close">
+					<button type="button" class="btn btn-close"><i class="fa fa-times" aria-hidden="true"></i></button>
+				</div>
 
 
-
-
+				
+			</div>
 			<div class="container">
 				<img id="logotipo" src="img/orlando-logo.png" alt="Logotipo">
 			</div>
@@ -32,8 +44,13 @@
 			<div class="header-black">
 				
 				<div class="container"> 
-										  
-					<ul class="float-right"> 
+
+					<input type="search" id="input-search-mobile" class=".d-block .d-sm-none" placeholder="search...">
+
+					<button id="btn-bars"type="button"><i class="fa-solid fa-bars"></i></button>
+					<button id="btn-search" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>		  
+					
+					<ul class="list-unstyled"> 
 
 						<li class="club-22"> <a href="#"></a></li>
 						<li class="club-21"> <a href="#"></a></li>
@@ -109,10 +126,8 @@
 					<h2>Latest News</h2>
 					<hr> <!--'horizontal row' linha abaixo do "latest news"-->
 				</div>	
-				<button type="button" id="btn-news-prev"><i class="fa-solid fa-angle-left"></i></button>
-				<button type="button" id="btn-news-next"><i class="fa-solid fa-angle-right"></i></button>
+			
 				<div class="row thumbnails owl-carousel owl-theme">
-					
 					<div class="item">
 						<div class="item-inner">
 
@@ -239,7 +254,7 @@
 					
 					<div class="row">
 						
-						<div class="col-md-2 text-center">
+						<div class="col-md-2 text-center d-none d-sm-block"> <!--'d-none d-sm-block'= bootstrap, para não aparecer na versão mobile, somente dskt-->
 							<img class="logotipo" src="img/orlando-logo.png" alt="Logotipo">
 
 						</div>
@@ -249,7 +264,7 @@
 
 							<div class="row row-cols">
 
-								<div class="col-md-4 col-popular-post">
+								<div class="col-md-4 col-popular-post d-none d-sm-block">
 
 									<h4>POPULAR POSTS</h4>
 
@@ -269,7 +284,7 @@
 									</ul>
 
 								</div>
-								<div class="col-md-4 col-links">
+								<div class="col-md-4 col-links d-none d-sm-block">
 
 									<h4>LINKS</h4>
 
@@ -281,13 +296,21 @@
 								</div>
 								<div class="col-md-4 col-get-in-touch">
 
-									<h4>GET IN TOUCH</h4>
+									<h4 class="d-none d-sm-block">GET IN TOUCH</h4>
 
-									<address>
-										<i class="fa fa-map-marker"></i> <span>618 E. South Street, Suite 510<br/>Orlando, FL 32801</span>
-									</address>
+										<address class="d-none d-sm-block">
+											<i class="fa fa-map-marker"></i><span>618 E. South Street, Suite 510<br/>Orlando, FL 32801</span>
+										</address>
 
-									<p><a href="tel:1855ORLCITY"><i class="fa fa-phone"></i>1.855.ORL.CITY</a></p>
+									<p class="d-none d-sm-block"><a href="tel:1855ORLCITY"><i class="fa fa-phone"></i>1.855.ORL.CITY</a></p>
+
+									<div class="row-fluid .d-block .d-sm-none">
+										
+											<a href="#" class="btn btn-footer"><i class="fa fa-map-marker"></i>Location</a>
+											<a href="#" class="btn btn-footer"><i class="fa fa-phone"></i>Call</a>
+										
+									</div>
+
 
 									<ul class="list-unstyled list-socials">
 
@@ -303,6 +326,7 @@
 										<li>
 											<a href="#" target="_blank"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
 										</li>
+										
 									</ul>
 
 
@@ -318,7 +342,7 @@
 
 			<div class="row row-cinza-escuro">
 
-				<div class="container">
+				<div class="container copyright-mobile">
 					
 					<p class="text-left">Copyright © Orlando City Soccer 2016. All rights reserved.</p>
 					<p class="text-right text-roxo">Created by Andressa Biagi in Udemy (HCODE)</p>
